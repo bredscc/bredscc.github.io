@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brenda dos Santos Cabral Chaves</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo-container">
+      <img src="assets/icon.png" alt="Ícone pessoal" class="mini-icon">
+      <h1 class="logo">Brenda dos Santos Cabral Chaves</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#about" data-i18n="about">Sobre</a></li>
+        <li><a href="#projects" data-i18n="projects">Projetos</a></li>
+        <li><a href="#readaround">Read-Around</a></li>
+        <li><a href="#contact" data-i18n="contact">Contato</a></li>
+      </ul>
+    </nav>
+    <select id="languageSwitcher">
+      <option value="pt">PT</option>
+      <option value="en">EN</option>
+      <option value="es">ES</option>
+    </select>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2 data-i18n="title">Engenharia de Software + Inteligência Artificial</h2>
+      <p data-i18n="subtitle">
+        Estudante na Uniamérica, com foco em Python, projetos pessoais e Inteligência Artificial.
+      </p>
+      <a href="#contact" class="btn primary" data-i18n="cta">
+        <i data-lucide="send"></i> Vamos conversar
+      </a>
+    </div>
+    <canvas id="animationCanvas"></canvas>
+  </section>
+
+  <section id="about" class="section">
+    <div class="section-content">
+      <h2 data-i18n="about">Sobre mim</h2>
+      <p data-i18n="aboutText">
+        Tenho base sólida em Python e interesse crescente em Inteligência Artificial. Busco estágio para aplicar meu aprendizado em projetos reais, enquanto sigo desenvolvendo soluções próprias e criativas.
+      </p>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="section-content">
+      <h2 data-i18n="projects">Projetos</h2>
+      <p data-i18n="projectsText">
+        Meus projetos exploram desde aplicações web até ferramentas em Python para automação e aprendizado de máquina.
+      </p>
+    </div>
+  </section>
+
+  <section id="readaround" class="section highlight">
+    <div class="section-content">
+      <h2>Read-Around</h2>
+      <p>
+        Projeto desenvolvido em Python que une tecnologia e literatura.  
+        Experiência interativa para explorar livros e culturas.
+      </p>
+      <a href="https://brecketline.me/read-around" target="_blank" class="btn secondary">
+        <i data-lucide="book"></i> Ver projeto
+      </a>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="section-content">
+      <h2 data-i18n="contact">Contato</h2>
+      <p data-i18n="contactText">Aberta a oportunidades em Inteligência Artificial e desenvolvimento.</p>
+      <div class="contact-links">
+        <a href="mailto:seu-email@email.com" class="btn primary">
+          <i data-lucide="mail"></i> Email
+        </a>
+        <a href="https://github.com/bredscc" target="_blank" class="btn secondary">
+          <i data-lucide="github"></i> GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 brecketline</p>
+  </footer>
+
+  <script src="translations.js"></script>
+  <script src="script.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>
+
