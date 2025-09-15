@@ -32,14 +32,22 @@ header {
   z-index: 10;
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
 .logo img {
-  height: 40px;
+  height: 80px;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1.5rem;
+  margin-left: 2rem;
+  flex-grow: 1; 
 }
 
 .nav-links a {
@@ -54,7 +62,7 @@ header {
 }
 
 #language-selector {
-  margin-left: 1rem;
+  margin-left: auto;
   background: #111;
   color: rgb(85, 157, 157);
   border: 1px solid rgb(84, 128, 128);
@@ -73,7 +81,8 @@ header {
 
 .hero h1 {
   font-size: 4rem;
-  color: rgb(111, 195, 195);
+  color: rgb(109, 234, 234);
+  font-weight: 560;
 }
 
 .hero p {
