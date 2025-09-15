@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Tinos", "Segoe UI", serif;
   background: #0a0a0a;
   color: #fff;
   overflow-x: hidden;
@@ -55,6 +55,7 @@ nav {
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
+  font-family: "Tinos", serif;
 }
 
 .nav-links a:hover {
@@ -68,6 +69,7 @@ nav {
   border: 1px solid rgb(84, 128, 128);
   padding: 0.3rem;
   border-radius: 5px;
+  font-family: "Tinos", serif;
 }
 
 .hero {
@@ -81,14 +83,19 @@ nav {
 
 .hero h1 {
   font-size: 4rem;
-  color: rgb(109, 234, 234);
-  font-weight: 560;
+  color: rgb(186, 237, 237);
+  font-weight: 540;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
 .hero p {
   margin-top: 1rem;
   font-size: 1.5rem;
   color: #ccc;
+  font-family: "Tinos", serif;
 }
 
 .about {
@@ -101,6 +108,7 @@ nav {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: rgb(91, 161, 161);
+  font-family: "Playfair Display", serif;
 }
 
 .about p {
@@ -108,6 +116,7 @@ nav {
   margin: auto;
   font-size: 1.2rem;
   color: #ddd;
+  font-family: "Tinos", serif;
 }
 
 footer {
@@ -118,6 +127,7 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  font-family: "Tinos", serif;
 }
 
 footer .icon {
