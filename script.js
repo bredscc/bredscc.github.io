@@ -1,77 +1,116 @@
-const themeToggle = document.getElementById('themeToggle');
-const languageSwitcher = document.getElementById('languageSwitcher');
+const canvas = document.getElementById("network-canvas");
+const ctx = canvas.getContext("2d");
 
-// Load saved theme
-if (localStorage.getItem('theme') === 'dark') {
-  document.body.classList.add('dark');
+let width = (canvas.width = window.innerWidth);
+let height = (canvas.height = window.innerHeight);
+
+const nodes = [];
+const nodeCount = 70;
+
+class Node {
+  constructor() {
+    this.x = Math.random() * width;
+    this.y = Math.random() * height;
+    this.vx = (Math.random() - 0.5) * 0.5;
+    this.vy = (Math.random() - 0.5) * 0.5;
+  }
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+
+    if (this.x < 0 || this.x > width) this.vx *= -1;
+    if (this.y < 0 || this.y > height) this.vy *= -1;
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
+    ctx.fillStyle = "#0ff";
+    ctx.fill();
+  }
 }
 
-// Toggle dark mode
-themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-  localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+for (let i = 0; i < nodeCount; i++) {
+  nodes.push(new Node());
+}
+
+function animate() {
+  ctx.clearRect(0, 0, width, height);
+  nodes.forEach((node, i) => {
+    node.update();
+    node.draw();
+    for (let j = i + 1; j < nodes.length; j++) {
+      const other = nodes[j];
+      const dx = node.x - other.x;
+      const dy = node.y - other.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 120) {
+        ctx.beginPath();
+        ctx.moveTo(node.x, node.y);
+        ctx.lineTo(other.x, other.y);
+        ctx.strokeStyle = "rgba(0,255,255,0.1)";
+        ctx.stroke();
+      }
+    }
+  });
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+window.addEventListener("resize", () => {
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
 });
 
-// Translations
 const translations = {
   en: {
-    name: "Brenda dos Santos Cabral Chaves",
+    tagline: "Software Engineering Student | Python Focused",
+    aboutTitle: "About",
+    aboutText: "Simplicity, creativity, and problem-solving. I develop custom solutions for challenges I encounter in my daily life.",
+    home: "Home",
     about: "About",
     projects: "Projects",
     contact: "Contact",
-    title: "Software Engineering Student",
-    subtitle: "Focused on Python, personal projects, and seeking an internship in Artificial Intelligence.",
-    cta: "Get in touch",
-    aboutText: "I am a Software Engineering student at Uniamérica University with a solid foundation in Python. I am passionate about Artificial Intelligence and developing projects that solve real-world problems.",
-    readAround: "A Python-based project hosted at brecketline.me/read-around. This project explores digital reading experiences and collaborative learning.",
-    contactText: "If you'd like to collaborate or discuss opportunities, feel free to reach out.",
-    emailMe: "Email Me"
   },
   pt: {
-    name: "Brenda dos Santos Cabral Chaves",
+    tagline: "Estudante de Engenharia de Software | Com ênfase em Python",
+    aboutTitle: "Sobre",
+    aboutText: "Simplicidade, criatividade e resolução de problemas. Desenvolvo soluções próprias para os desafios que encontro no meu dia a dia.",
+    home: "Início",
     about: "Sobre",
     projects: "Projetos",
     contact: "Contato",
-    title: "Estudante de Engenharia de Software",
-    subtitle: "Focada em Python, projetos pessoais e em busca de estágio em Inteligência Artificial.",
-    cta: "Entre em contato",
-    aboutText: "Sou estudante de Engenharia de Software na Universidade Uniamérica com uma base sólida em Python. Tenho paixão por Inteligência Artificial e pelo desenvolvimento de projetos que resolvem problemas reais.",
-    readAround: "Um projeto em Python hospedado em brecketline.me/read-around. Este projeto explora experiências de leitura digital e aprendizado colaborativo.",
-    contactText: "Se quiser colaborar ou discutir oportunidades, entre em contato.",
-    emailMe: "Me envie um email"
   },
   es: {
-    name: "Brenda dos Santos Cabral Chaves",
-    about: "Sobre mí",
+    tagline: "Estudiante de Ingeniería de Software | Enfoque en Python",
+    aboutTitle: "Acerca de",
+    aboutText: "Simplicidad, creatividad y resolución de problemas. Desarrollo soluciones propias para los desafíos que encuentro en mi día a día.",
+    home: "Inicio",
+    about: "Acerca de",
     projects: "Proyectos",
     contact: "Contacto",
-    title: "Estudiante de Ingeniería de Software",
-    subtitle: "Enfocada en Python, proyectos personales y en busca de una pasantía en Inteligencia Artificial.",
-    cta: "Contáctame",
-    aboutText: "Soy estudiante de Ingeniería de Software en la Universidad Uniamérica con una sólida base en Python. Me apasiona la Inteligencia Artificial y el desarrollo de proyectos que resuelven problemas reales.",
-    readAround: "Un proyecto en Python alojado en brecketline.me/read-around. Este proyecto explora experiencias de lectura digital y aprendizaje colaborativo.",
-    contactText: "Si deseas colaborar o discutir oportunidades, no dudes en contactarme.",
-    emailMe: "Envíame un correo"
-  }
+  },
+  fr: {
+    tagline: "Étudiant en Génie Logiciel | Avec un focus sur Python",
+    aboutTitle: "À propos",
+    aboutText: "Simplicité, créativité et résolution de problèmes. Je développe mes propres solutions aux défis que je rencontre dans mon quotidien.",
+    home: "Accueil",
+    about: "À propos",
+    projects: "Projets",
+    contact: "Contact",
+  },
 };
 
-// Load saved language
-const savedLang = localStorage.getItem('lang') || 'en';
-languageSwitcher.value = savedLang;
-applyTranslations(savedLang);
+const langSelector = document.getElementById("language-selector");
 
-// Change language
-languageSwitcher.addEventListener('change', (e) => {
+langSelector.addEventListener("change", (e) => {
   const lang = e.target.value;
-  localStorage.setItem('lang', lang);
-  applyTranslations(lang);
-});
+  document.getElementById("tagline").innerText = translations[lang].tagline;
+  document.querySelector("[data-key='aboutTitle']").innerText = translations[lang].aboutTitle;
+  document.getElementById("about-text").innerText = translations[lang].aboutText;
 
-function applyTranslations(lang) {
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (translations[lang][key]) {
-      el.textContent = translations[lang][key];
-    }
-  });
-}
+  document.querySelector("[data-key='home']").innerText = translations[lang].home;
+  document.querySelector("[data-key='about']").innerText = translations[lang].about;
+  document.querySelector("[data-key='projects']").innerText = translations[lang].projects;
+  document.querySelector("[data-key='contact']").innerText = translations[lang].contact;
+});
