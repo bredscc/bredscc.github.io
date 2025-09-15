@@ -51,7 +51,7 @@ nav {
 }
 
 .nav-links a {
-  color: rgb(105, 170, 170);
+  color: rgb(108, 182, 182);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
@@ -59,16 +59,16 @@ nav {
 }
 
 .nav-links a:hover {
-  color: #f0f;
+  color: rgb(36, 207, 241);
 }
 
 #language-selector {
   margin-left: auto;
-  background: #111;
+  background: #000000;
   color: rgb(85, 157, 157);
-  border: 1px solid rgb(84, 128, 128);
-  padding: 0.3rem;
-  border-radius: 5px;
+  border: 1px solid rgb(92, 179, 179);
+  padding: 0.2rem;
+  border-radius: 2px;
   font-family: "Tinos", serif;
 }
 
@@ -94,20 +94,20 @@ nav {
 .hero p {
   margin-top: 1rem;
   font-size: 1.5rem;
-  color: #ccc;
+  color: #7aabbb;
   font-family: "Tinos", serif;
 }
 
 .about {
-  padding: 5rem 2rem;
+  padding: 3rem 1rem;
   text-align: center;
-  background: #111;
+  background: #000000;
 }
 
 .about h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: rgb(91, 161, 161);
+  color: rgb(149, 220, 220);
   font-family: "Playfair Display", serif;
 }
 
@@ -115,7 +115,7 @@ nav {
   max-width: 700px;
   margin: auto;
   font-size: 1.2rem;
-  color: #ddd;
+  color: #cee7ef;
   font-family: "Tinos", serif;
 }
 
