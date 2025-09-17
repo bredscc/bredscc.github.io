@@ -6,9 +6,10 @@
 
 body {
   font-family: "Tinos", "Segoe UI", serif;
-  background: #0a0a0a;
+  background: #0a0a0a; 
   color: #fff;
-  overflow-x: hidden;
+  overflow-x: hidden; 
+  overflow-y: auto;   
 }
 
 #network-canvas {
@@ -48,6 +49,7 @@ nav {
   gap: 1.5rem;
   margin-left: 2rem;
   flex-grow: 1; 
+  flex-wrap: wrap; 
 }
 
 .nav-links a {
@@ -56,6 +58,7 @@ nav {
   font-weight: 500;
   transition: color 0.3s;
   font-family: "Tinos", serif;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -79,16 +82,14 @@ nav {
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 0 1rem;
 }
 
 .hero h1 {
   font-size: 4rem;
   color: rgb(186, 237, 237);
-  font-weight: 540;
-  font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
   font-weight: 600;
-  font-style: normal;
+  font-family: "Playfair Display", serif;
 }
 
 .hero p {
@@ -139,4 +140,23 @@ footer .icon {
 
 footer .icon:hover {
   transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    height: 60px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 1rem;
+  }
 }
