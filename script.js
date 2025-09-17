@@ -1,116 +1,146 @@
 const canvas = document.getElementById("network-canvas");
 const ctx = canvas.getContext("2d");
 
-let width = (canvas.width = window.innerWidth);
-let height = (canvas.height = window.innerHeight);
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-const nodes = [];
-const nodeCount = 70;
+let particles = [];
 
-class Node {
-  constructor() {
-    this.x = Math.random() * width;
-    this.y = Math.random() * height;
+class Particle {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
     this.vx = (Math.random() - 0.5) * 0.5;
     this.vy = (Math.random() - 0.5) * 0.5;
+    this.radius = 1.2;
   }
   update() {
     this.x += this.vx;
     this.y += this.vy;
-
-    if (this.x < 0 || this.x > width) this.vx *= -1;
-    if (this.y < 0 || this.y > height) this.vy *= -1;
+    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
   }
   draw() {
     ctx.beginPath();
-    ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
-    ctx.fillStyle = "#0ff";
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(100, 200, 200, 0.8)";
     ctx.fill();
   }
 }
 
-for (let i = 0; i < nodeCount; i++) {
-  nodes.push(new Node());
-}
-
-function animate() {
-  ctx.clearRect(0, 0, width, height);
-  nodes.forEach((node, i) => {
-    node.update();
-    node.draw();
-    for (let j = i + 1; j < nodes.length; j++) {
-      const other = nodes[j];
-      const dx = node.x - other.x;
-      const dy = node.y - other.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 120) {
+function connectParticles() {
+  for (let a = 0; a < particles.length; a++) {
+    for (let b = a + 1; b < particles.length; b++) {
+      let dx = particles[a].x - particles[b].x;
+      let dy = particles[a].y - particles[b].y;
+      let distance = Math.sqrt(dx * dx + dy * dy);
+      if (distance < 120) {
         ctx.beginPath();
-        ctx.moveTo(node.x, node.y);
-        ctx.lineTo(other.x, other.y);
-        ctx.strokeStyle = "rgba(0,255,255,0.1)";
+        ctx.strokeStyle = "rgba(100, 200, 200, 0.1)";
+        ctx.lineWidth = 1;
+        ctx.moveTo(particles[a].x, particles[a].y);
+        ctx.lineTo(particles[b].x, particles[b].y);
         ctx.stroke();
       }
     }
+  }
+}
+
+function initParticles() {
+  particles = [];
+  for (let i = 0; i < 120; i++) {
+    let x = Math.random() * canvas.width;
+    let y = Math.random() * canvas.height;
+    particles.push(new Particle(x, y));
+  }
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach((p) => {
+    p.update();
+    p.draw();
   });
+  connectParticles();
   requestAnimationFrame(animate);
 }
 
-animate();
-
 window.addEventListener("resize", () => {
-  width = canvas.width = window.innerWidth;
-  height = canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  initParticles();
 });
+
+initParticles();
+animate();
 
 const translations = {
   en: {
-    tagline: "Software Engineering Student | Python Focused",
-    aboutTitle: "About",
-    aboutText: "Simplicity, creativity, and problem-solving. I develop custom solutions for challenges I encounter in my daily life.",
     home: "Home",
     about: "About",
     projects: "Projects",
     contact: "Contact",
+    aboutTitle: "About",
+    aboutText:
+      "Simplicity, creativity, and problem-solving. I develop custom solutions for challenges I encounter in my daily life.",
+
+    projectsTitle: "Read Around the World",
+    projectsDesc:
+      "A simple tool that selects a random country in the world and then finds a book written by an author from that country. The goal is to learn about a place through its literature.",
   },
   pt: {
-    tagline: "Estudante de Engenharia de Software | Com ênfase em Python",
-    aboutTitle: "Sobre",
-    aboutText: "Simplicidade, criatividade e resolução de problemas. Desenvolvo soluções próprias para os desafios que encontro no meu dia a dia.",
     home: "Início",
     about: "Sobre",
     projects: "Projetos",
     contact: "Contato",
+    aboutTitle: "Sobre",
+    aboutText:
+      "Simplicidade, criatividade e resolução de problemas. Desenvolvo soluções personalizadas para desafios que encontro no meu dia a dia.",
+
+    projectsTitle: "Leia ao Redor do Mundo",
+    projectsDesc:
+      "Uma ferramenta simples que seleciona um país aleatório e encontra um livro escrito por um autor desse país. O objetivo é aprender sobre o lugar através da literatura.",
   },
   es: {
-    tagline: "Estudiante de Ingeniería de Software | Enfoque en Python",
-    aboutTitle: "Acerca de",
-    aboutText: "Simplicidad, creatividad y resolución de problemas. Desarrollo soluciones propias para los desafíos que encuentro en mi día a día.",
     home: "Inicio",
     about: "Acerca de",
     projects: "Proyectos",
     contact: "Contacto",
+    aboutTitle: "Acerca de",
+    aboutText:
+      "Simplicidad, creatividad y resolución de problemas. Desarrollo soluciones personalizadas para los desafíos que encuentro en mi vida diaria.",
+
+    projectsTitle: "Leer Alrededor del Mundo",
+    projectsDesc:
+      "Una herramienta que selecciona un país aleatorio y encuentra un libro escrito por un autor de ese país. El objetivo es conocer un lugar a través de su literatura.",
   },
   fr: {
-    tagline: "Étudiant en Génie Logiciel | Avec un focus sur Python",
-    aboutTitle: "À propos",
-    aboutText: "Simplicité, créativité et résolution de problèmes. Je développe mes propres solutions aux défis que je rencontre dans mon quotidien.",
     home: "Accueil",
     about: "À propos",
     projects: "Projets",
     contact: "Contact",
+    aboutTitle: "À propos",
+    aboutText:
+      "Simplicité, créativité et résolution de problèmes. Je développe des solutions personnalisées aux défis que je rencontre dans ma vie quotidienne.",
+
+    projectsTitle: "Lire Autour du Monde",
+    projectsDesc:
+      "Un outil simple qui sélectionne un pays aléatoire et trouve un livre écrit par un auteur de ce pays. L'objectif est de découvrir un lieu à travers sa littérature.",
   },
 };
 
+
 const langSelector = document.getElementById("language-selector");
-
 langSelector.addEventListener("change", (e) => {
-  const lang = e.target.value;
-  document.getElementById("tagline").innerText = translations[lang].tagline;
-  document.querySelector("[data-key='aboutTitle']").innerText = translations[lang].aboutTitle;
-  document.getElementById("about-text").innerText = translations[lang].aboutText;
-
-  document.querySelector("[data-key='home']").innerText = translations[lang].home;
-  document.querySelector("[data-key='about']").innerText = translations[lang].about;
-  document.querySelector("[data-key='projects']").innerText = translations[lang].projects;
-  document.querySelector("[data-key='contact']").innerText = translations[lang].contact;
+  setLanguage(e.target.value);
 });
+
+function setLanguage(lang) {
+  const elements = document.querySelectorAll("[data-key]");
+  elements.forEach((el) => {
+    const key = el.getAttribute("data-key");
+    if (translations[lang] && translations[lang][key]) {
+      el.innerText = translations[lang][key];
+    }
+  });
+}

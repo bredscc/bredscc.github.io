@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> Brecketline | Portfolio</title>
+  <title>Brecketline | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/webp" href="assets/icon.webp" />
+  <link rel="icon" type="image/webp" href="../assets/icon.webp" />
 </head>
 <body>
   <canvas id="network-canvas"></canvas>
@@ -16,13 +16,13 @@
   <header>
     <nav>
       <div class="logo">
-        <img src="assets/logo_bracketline.webp" alt="Bracketline Logo" />
+        <img src="../assets/logo_bracketline.webp" alt="Bracketline Logo" />
       </div>
       <ul class="nav-links">
         <li><a href="#home" data-key="home">Home</a></li>
         <li><a href="#about" data-key="about">About</a></li>
-        <li><a href="https://brecketline.me/read-around" target="_blank" data-key="projects">Projects</a></li>
-        <li><a href="mailto:brendadscc@gmail.com" data-key="contact">Contact</a></li>
+        <li><a href="#projects" data-key="projects">Projects</a></li>
+        <li><a href="brendadscc@gmail.com" data-key="contact">Contact</a></li>
       </ul>
       <select id="language-selector">
         <option value="en">EN</option>
@@ -40,15 +40,35 @@
 
   <section class="about" id="about">
     <h2 data-key="aboutTitle">About</h2>
-    <p id="about-text">
+    <p id="about-text" data-key="aboutText">
       Simplicity, creativity, and problem-solving. I develop custom solutions for challenges I encounter in my daily life.
     </p>
+  </section>
+
+  <section id="projects">
+    <h2 data-key="projects">Projects</h2>
+
+    <div class="projects-grid">
+      <a href="https://brecketline.me/read-around/" class="project-card">
+        <h3 data-key="projectsTitle">Read Around</h3>
+        <p data-key="projectsDesc">
+          A simple tool that selects a random country in the world and then finds a book written by an author from that country. The goal is to learn about a place through its literature.
+        </p>
+      </a>
+
+      <a href="schengin.html" class="project-card">
+        <h3 id="p2-title">Scheng.in (Upcoming)</h3>
+        <p>
+          Exploring the Schengen Area? Keep your trip stress-free. Scheng.in is a website that tracks your days and intelligently recommends how to avoid overstaying your visa.
+        </p>
+      </a>
+    </div>
   </section>
 
   <footer>
     <p>&copy; 2025 brecketline</p>
     <a href="https://github.com/bredscc" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="icon" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="icon github-icon" />
     </a>
     <a href="mailto:brendadscc@gmail.com">
       <img src="https://img.icons8.com/ios-filled/50/ffffff/new-post.png" alt="Email" class="icon" />
