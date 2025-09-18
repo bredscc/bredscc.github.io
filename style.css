@@ -140,7 +140,7 @@ nav {
 .about p {
   max-width: 700px;
   margin: auto;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   color: #d6e9f0;
   font-family: "Tinos", serif;
 }
@@ -195,7 +195,7 @@ nav {
 }
 
 .project-card p {
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: rgb(231, 239, 239);
 }
 

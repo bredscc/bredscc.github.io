@@ -82,7 +82,7 @@ const translations = {
     contact: "Contact",
     aboutTitle: "About",
     aboutText:
-      "Simplicity, creativity, and problem-solving. I develop custom solutions for challenges I encounter in my daily life.",
+      "I’m a software engineering student with a background in customer service and tourism, where I learned to solve problems quickly, adapt to new environments, and work seamlessly with diverse teams. In 2023, I shifted my focus to technology, studying Python and building my foundation in JavaScript, HTML, and CSS. Today, I’m channeling those skills into software projects that emphasize simplicity, creativity, and reliable solutions.\nFluent in four languages and with experience living and working across five countries, I bring a global perspective to my work and the ability to learn and adapt at speed. Whether as part of a trainee team or through collaboration, my goal is to create efficient solutions without sacrificing quality and to keep growing as a developer who delivers results you can trust.",
     projectsTitle: "Read Around",
     projectsDesc:
       "A simple tool that selects a random country in the world and then finds a book written by an author from that country. The goal is to learn about a place through its literature.",
@@ -99,7 +99,7 @@ const translations = {
     contact: "Contato",
     aboutTitle: "Sobre",
     aboutText:
-      "Simplicidade, criatividade e resolução de problemas. Desenvolvo soluções personalizadas para desafios que encontro no meu dia a dia.",
+      "Sou estudante de Engenharia de Software, com experiência prévia em atendimento ao cliente e turismo, áreas nas quais desenvolvi a capacidade de resolver problemas com rapidez, adaptar-me a diferentes contextos e colaborar de forma natural com equipes diversas. Em 2023, decidi direcionar meu foco para a tecnologia, iniciando meus estudos em Python e consolidando a base em JavaScript, HTML e CSS. Hoje, aplico essas competências em projetos de software que valorizam a simplicidade, a criatividade e a confiabilidade.\nFluente em quatro idiomas e com vivência profissional em cinco países, trago uma visão global ao meu trabalho e a facilidade de aprender e me adaptar com agilidade. Seja atuando em um time de trainee ou em colaboração direta, meu objetivo é criar soluções eficientes sem abrir mão da qualidade, além de evoluir constantemente como desenvolvedora, entregando resultados sólidos e de confiança.",
     projectsTitle: "Read Around",
     projectsDesc:
       "Uma ferramenta simples que seleciona um país aleatório e encontra um livro escrito por um autor desse país. O objetivo é aprender sobre o lugar através da literatura.",
@@ -116,7 +116,7 @@ const translations = {
     contact: "Contacto",
     aboutTitle: "Acerca de",
     aboutText:
-      "Simplicidad, creatividad y resolución de problemas. Desarrollo soluciones personalizadas para los desafíos que encuentro en mi vida diaria.",
+      "Soy estudiante de Ingeniería de Software con experiencia en atención al cliente y turismo, sectores donde aprendí a resolver problemas con rapidez, adaptarme a entornos nuevos y trabajar en perfecta sintonía con equipos diversos. En 2023, decidí enfocar mi camino en la tecnología, iniciando estudios en Python y consolidando mis bases en JavaScript, HTML y CSS. Hoy pongo en práctica esas habilidades en proyectos de software que priorizan la sencillez, la creatividad y la fiabilidad.\nCon dominio de cuatro idiomas y experiencia viviendo y trabajando en cinco países, aporto una perspectiva global y una gran capacidad de aprendizaje y adaptación. Ya sea formando parte de un equipo de prácticas o colaborando en proyectos conjuntos, mi meta es crear soluciones eficientes sin renunciar a la calidad, y seguir creciendo como desarrolladora que ofrece resultados en los que se puede confiar.",
     projectsTitle: "Read Around",
     projectsDesc:
       "Una herramienta simple que selecciona un país aleatorio y encuentra un libro escrito por un autor de ese país. El objetivo es aprender sobre un lugar a través de su literatura.",
@@ -133,7 +133,7 @@ const translations = {
     contact: "Contact",
     aboutTitle: "À propos",
     aboutText:
-      "Simplicité, créativité et résolution de problèmes. Je développe des solutions personnalisées aux défis que je rencontre dans ma vie quotidienne.",
+      "Je suis étudiante en ingénierie logicielle, avec une expérience préalable dans le service client et le tourisme, domaines où j’ai appris à résoudre des problèmes rapidement, à m’adapter à de nouveaux environnements et à collaborer naturellement avec des équipes variées. En 2023, j’ai choisi de réorienter mon parcours vers la technologie, en commençant par l’étude de Python et en consolidant mes bases en JavaScript, HTML et CSS. Aujourd’hui, je mets ces compétences au service de projets logiciels qui privilégient la simplicité, la créativité et la fiabilité.\nMaîtrisant quatre langues et ayant vécu et travaillé dans cinq pays, j’apporte à mon travail une perspective internationale ainsi qu’une grande capacité d’apprentissage et d’adaptation. Que ce soit au sein d’une équipe de stagiaires ou dans le cadre d’une collaboration, mon objectif est de développer des solutions efficaces sans jamais compromettre la qualité, tout en continuant à évoluer comme développeuse capable de livrer des résultats fiables.",
     projectsTitle: "Read Around",
     projectsDesc:
       "Un outil simple qui sélectionne un pays au hasard et trouve un livre écrit par un auteur de ce pays. L'objectif est de découvrir un lieu à travers sa littérature.",
