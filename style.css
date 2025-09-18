@@ -1,3 +1,15 @@
+:root {
+  
+  --bg-color: #0a0a0a;
+  --text-color: #fff;
+  --accent-color: rgb(149, 220, 220);
+
+  
+  --bg-color-light: #fdfdfd;
+  --text-color-light: #111;
+  --accent-color-light: #007f7f;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,10 +18,11 @@
 
 body {
   font-family: "Tinos", "Segoe UI", serif;
-  background: #0a0a0a; 
-  color: #fff;
-  overflow-x: hidden; 
-  overflow-y: auto;   
+  background: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: background 0.3s, color 0.3s;
 }
 
 #network-canvas {
@@ -37,6 +50,7 @@ nav {
   display: flex;
   align-items: center;
   width: 100%;
+  gap: 1rem;
 }
 
 .logo img {
@@ -53,7 +67,7 @@ nav {
 }
 
 .nav-links a {
-  color: rgb(205, 255, 255);
+  color: var(--accent-color);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
@@ -73,6 +87,13 @@ nav {
   padding: 0.2rem;
   border-radius: 2px;
   font-family: "Tinos", serif;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--accent-color);
 }
 
 .hero {
@@ -128,14 +149,18 @@ nav {
   font-size: 1.4rem;
   padding: 3rem 1rem;
   text-align: center;
-  background: transparent;
-  position: relative;
-  z-index: 1;
-  color: rgb(149, 220, 220);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  margin: 2rem auto;
+  max-width: 1100px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
 #projects h2 {
-  font-family: "Playfair Display", serif; 
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--accent-color);
 }
 
 .projects-grid {
@@ -199,4 +224,22 @@ footer .github-icon {
 
 footer .icon:hover {
   transform: scale(1.2);
+}
+
+body.light-mode {
+  background: var(--bg-color-light);
+  color: var(--text-color-light);
+}
+
+body.light-mode .nav-links a {
+  color: var(--accent-color-light);
+}
+
+body.light-mode #projects {
+  background: rgba(0,0,0,0.03);
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+body.light-mode #projects h2 {
+  color: var(--accent-color-light);
 }
