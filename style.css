@@ -44,7 +44,6 @@ body{
   -moz-osx-font-smoothing:grayscale;
 }
 
-/* Skip link */
 .skip-link{
   position: absolute;
   left: -9999px;
@@ -65,7 +64,6 @@ body{
   border-radius: 6px;
 }
 
-/* Canvas background */
 #network-canvas{
   position: fixed;
   inset: 0;
@@ -75,7 +73,6 @@ body{
   pointer-events: none;
 }
 
-/* Header & nav */
 header{
   position: fixed;
   inset: 0 0 auto 0;
@@ -100,14 +97,12 @@ header{
   padding: 0 1rem;
 }
 
-/* Logo */
 .logo img{
   height: 56px;
   width: auto;
   display:block;
 }
 
-/* Nav toggle (mobile) */
 .nav-toggle{ display:none; }
 .nav-toggle-btn{
   display:none;
