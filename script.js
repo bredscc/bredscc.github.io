@@ -203,7 +203,7 @@ animate();
 const translations = {
   en: {
     home: "Home",
-    about: "About",
+    about: "About Me",
     projects: "Projects",
     contact: "Contact",
     aboutTitle: "About me",
@@ -220,7 +220,7 @@ const translations = {
   },
   pt: {
     home: "Início",
-    about: "Sobre",
+    about: "Sobre mim",
     projects: "Projetos",
     contact: "Contato",
     aboutTitle: "Sobre mim",
@@ -237,7 +237,7 @@ const translations = {
   },
   es: {
     home: "Inicio",
-    about: "Acerca de",
+    about: "Sobre mí",
     projects: "Proyectos",
     contact: "Contacto",
     aboutTitle: "Sobre mí",
@@ -254,7 +254,7 @@ const translations = {
   },
   fr: {
     home: "Accueil",
-    about: "À propos",
+    about: "À propos de moi",
     projects: "Projets",
     contact: "Contact",
     aboutTitle: "À propos de moi",
