@@ -1,3 +1,127 @@
+(() => {
+  
+  const canvas = document.getElementById("network-canvas");
+  if (canvas) {
+    const ctx = canvas.getContext("2d");
+
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resizeCanvas();
+
+    let particles = [];
+
+    class Particle {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.radius = 1.2;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(100, 200, 200, 0.8)";
+        ctx.fill();
+      }
+    }
+
+    function connectParticles() {
+      for (let a = 0; a < particles.length; a++) {
+        for (let b = a + 1; b < particles.length; b++) {
+          const dx = particles[a].x - particles[b].x;
+          const dy = particles[a].y - particles[b].y;
+          const distance = Math.hypot(dx, dy);
+          if (distance < 120) {
+            ctx.beginPath();
+            ctx.strokeStyle = "rgba(100, 200, 200, 0.1)";
+            ctx.lineWidth = 1;
+            ctx.moveTo(particles[a].x, particles[a].y);
+            ctx.lineTo(particles[b].x, particles[b].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < 120; i++) {
+        particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height));
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p) => {
+        p.update();
+        p.draw();
+      });
+      connectParticles();
+      requestAnimationFrame(animate);
+    }
+
+    initParticles();
+    animate();
+
+    let resizeTimeout;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        resizeCanvas();
+        initParticles();
+      }, 150);
+    });
+  }
+
+
+  const translations = {
+    en: {
+      home: "Home",
+      about: "About",
+      projects: "Projects",
+      contact: "Contact",
+    },
+    fr: {
+      home: "Accueil",
+      about: "À propos",
+      projects: "Projets",
+      contact: "Contact",
+    },
+    de: {
+      home: "Startseite",
+      about: "Über mich",
+      projects: "Projekte",
+      contact: "Kontakt",
+    }
+  };
+
+  function setLanguage(lang) {
+    document.querySelectorAll("[data-key]").forEach((el) => {
+      const key = el.getAttribute("data-key");
+      if (translations[lang] && translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const langSelector = document.getElementById("language-selector");
+    if (langSelector) {
+      setLanguage(langSelector.value || "en");
+      langSelector.addEventListener("change", (e) => setLanguage(e.target.value));
+    }
+  });
+})();
+
 const canvas = document.getElementById("network-canvas");
 const ctx = canvas.getContext("2d");
 
@@ -14,12 +138,14 @@ class Particle {
     this.vy = (Math.random() - 0.5) * 0.5;
     this.radius = 1.2;
   }
+
   update() {
     this.x += this.vx;
     this.y += this.vy;
     if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
     if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
   }
+
   draw() {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
@@ -147,29 +273,11 @@ const translations = {
 
 document.addEventListener("DOMContentLoaded", () => {
   const langSelector = document.getElementById("language-selector");
-  
   setLanguage(langSelector.value || "en");
 
   langSelector.addEventListener("change", (e) => {
     setLanguage(e.target.value);
   });
-
-  const themeToggle = document.getElementById("theme-toggle");
-  if (themeToggle) {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      document.documentElement.setAttribute("data-theme", savedTheme);
-    } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-      document.documentElement.setAttribute("data-theme", "light");
-    }
-
-    themeToggle.addEventListener("click", () => {
-      const current = document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
-      const next = current === "light" ? "dark" : "light";
-      document.documentElement.setAttribute("data-theme", next);
-      localStorage.setItem("theme", next);
-    });
-  }
 });
 
 function setLanguage(lang) {
