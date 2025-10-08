@@ -203,7 +203,7 @@ animate();
 const translations = {
   en: {
     home: "Home",
-    about: "About Me",
+    about: "About me",
     projects: "Projects",
     contact: "Contact",
     aboutTitle: "About me",
