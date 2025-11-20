@@ -16,7 +16,7 @@
       --primary: #2ab6c6;
       --primary-dark: #1e8793;
       --bg: #f5f7fa;
-      --bg-glass: rgba(255, 255, 255, 0.7); /* Mais claro para Glassmorphism */
+      --bg-glass: rgba(255, 255, 255, 0.7);
       --text: #1a1a1a;
       --text-light: #666;
       --radius: 14px;
@@ -24,10 +24,9 @@
       --blur: blur(14px);
     }
 
-    /* Dark Mode Automático */
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #121216; /* Fundo mais escuro */
+        --bg: #121216;
         --bg-glass: rgba(20, 22, 28, 0.7);
         --text: #e0e0e0;
         --text-light: #9aa0b2;
@@ -48,21 +47,18 @@
       line-height: 1.6;
       overflow-x: hidden;
       min-height: 100vh;
-      position: relative; /* Para o canvas ficar em z-index -1 */
+      position: relative;
     }
 
-    /* ===== NETWORK CANVAS (Posicionamento) ===== */
     #network-canvas {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1; /* Fica atrás de todo o conteúdo */
-      background-color: transparent; /* Permite ver o body background */
+      z-index: -1; 
+      background-color: transparent;
     }
-
-    /* ===== NAVBAR MODERNA (Ajuste para Dark Mode) ===== */
 
     header {
       backdrop-filter: var(--blur);
@@ -101,11 +97,10 @@
       color: var(--primary);
     }
 
-    /* ===== CONTAINER PRINCIPAL ===== */
 
     .synsys-section {
       padding: 70px 20px 100px;
-      position: relative; /* Para garantir que o conteúdo fique acima do canvas */
+      position: relative;
       z-index: 1;
     }
 
@@ -117,7 +112,7 @@
       padding: 40px 35px;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,0.15); /* Borda mais discreta */
+      border: 1px solid rgba(255,255,255,0.15); 
       animation: fadeIn 0.8s ease;
     }
 
@@ -126,7 +121,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ===== TÍTULO / INFO BOX ===== */
 
     .synsys-title {
       text-align: center;
@@ -135,7 +129,7 @@
 
     .synsys-title h1 {
       font-size: 2.4em;
-      font-weight: 800; /* Mais peso para destaque */
+      font-weight: 800;
       margin-bottom: 8px;
     }
 
@@ -146,7 +140,7 @@
 
     .info-box {
       padding: 18px 22px;
-      background: rgba(42, 182, 198, 0.07); /* Cor de destaque da primary */
+      background: rgba(42, 182, 198, 0.07);
       border-left: 4px solid var(--primary);
       border-radius: var(--radius);
       margin-bottom: 35px;
@@ -156,8 +150,7 @@
     .info-box strong {
         color: var(--primary-dark);
     }
-    
-    /* ===== TEXTAREA MODERNA ===== */
+
 
     #texto-entrada-synsys {
       width: 100%;
@@ -176,13 +169,12 @@
     #texto-entrada-synsys:focus {
       outline: none;
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(42, 182, 198, 0.3); /* Anel de foco */
+      box-shadow: 0 0 0 3px rgba(42, 182, 198, 0.3); 
     }
 
-    /* ===== BOTÃO MODERNO ===== */
 
     .synsys-button {
-      width: 100%; /* Ocupa a largura total para mobile */
+      width: 100%; 
       margin-top: 20px;
       padding: 15px 32px;
       background: var(--primary);
@@ -209,7 +201,6 @@
       box-shadow: none;
     }
 
-    /* ===== LOADING ===== */
 
     #loading {
       margin-top: 20px;
@@ -223,7 +214,6 @@
       border: 1px dashed var(--primary);
     }
 
-    /* ===== TABELA MODERNA ===== */
 
     .tabela-synsys {
       width: 100%;
@@ -231,7 +221,7 @@
       border-collapse: collapse;
       border-radius: var(--radius);
       overflow: hidden;
-      background: var(--bg); /* Fundo sólido para clareza da tabela */
+      background: var(--bg);
       box-shadow: var(--shadow);
     }
 
@@ -257,8 +247,7 @@
     .tabela-synsys tr:last-child td {
       border-bottom: none;
     }
-    
-    /* DARK MODE TABELA */
+
     @media (prefers-color-scheme: dark) {
         .tabela-synsys th, .tabela-synsys td {
             border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -269,15 +258,13 @@
     }
 
 
-    /* ===== FOOTER ===== */
-
     footer {
       text-align: center;
       padding: 35px 0;
       color: var(--text-light);
       margin-top: 50px;
       font-size: 0.9em;
-      position: relative; /* Para ficar acima do canvas */
+      position: relative;
       z-index: 1;
     }
 
@@ -294,10 +281,9 @@
       filter: grayscale(0%);
     }
 
-    /* ===== RESPONSIVIDADE ===== */
     @media (max-width: 600px) {
         .nav .nav-links {
-            display: none; /* Simplificação: manter apenas o logo */
+            display: none;
         }
         .nav {
             justify-content: center;
@@ -311,12 +297,11 @@
         .synsys-button {
             padding: 12px 20px;
         }
-        /* Tabela responsiva (transforma em blocos verticais) */
         .tabela-synsys, .tabela-synsys thead, .tabela-synsys tbody, .tabela-synsys th, .tabela-synsys td, .tabela-synsys tr {
             display: block;
         }
         .tabela-synsys thead {
-            display: none; /* Esconder cabeçalho real no mobile */
+            display: none;
         }
         .tabela-synsys tr {
             margin-bottom: 15px;
@@ -328,7 +313,7 @@
             padding-left: 50%;
             position: relative;
         }
-        .tabela-synsys td:before { /* Nova linha de cabeçalho para cada célula */
+        .tabela-synsys td:before {
             content: attr(data-label);
             position: absolute;
             left: 10px;
@@ -449,7 +434,6 @@
         let tabelaHTML = '<table class="tabela-synsys"><thead><tr><th>Palavra Original (Lema)</th><th>Frequência</th><th>Sinônimos Sugeridos</th></tr></thead><tbody>';
 
         resultados.forEach(item => {
-            // Adiciona data-label para responsividade móvel
             tabelaHTML += `
                 <tr>
                     <td data-label="Palavra Original"><strong>${item.palavra}</strong></td>
