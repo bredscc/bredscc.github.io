@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Brenda Cabral Chaves — Software Engineering Student. Portfolio and projects." />
+<title>Brecketline | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+<link rel="icon" type="image/png" href="../assets/bitmap.png" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<canvas id="network-canvas" aria-hidden="true"></canvas>
+
+<header>
+<nav role="navigation" aria-label="Main navigation" class="nav">
+<div class="nav-inner">
+<div class="logo">
+<a href="#home" aria-label="Home">
+<img src="../assets/logo_brecketline.webp" alt="Brecketline Logo" loading="lazy" />
+</a>
+</div>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
+<label for="nav-toggle" class="nav-toggle-btn" aria-label="Toggle navigation">
+<span class="hamburger" aria-hidden="true"></span>
+</label>
+
+<ul class="nav-links">
+<li><a href="#home" data-key="home">Home</a></li>
+<li><a href="#projects" data-key="projects">Projects</a></li>
+<li><a href="#about" data-key="about">About me</a></li>
+<li><a href="mailto:brecketline@gmail.com" data-key="contact">Contact</a></li>
+</ul>
+
+<div class="nav-controls">
+<select id="language-selector" aria-label="Choose language">
+<option value="en">EN</option>
+<option value="pt">PT</option>
+<option value="es">ES</option>
+<option value="fr">FR</option>
+</select>
+</div>
+</div>
+</nav>
+</header>
+
+<main id="main">
+<section class="hero" id="home" aria-labelledby="hero-title">
+<h1 id="hero-title" data-key="heroTitle">Brenda Cabral Chaves</h1>
+<p class="hero-sub" data-key="heroTagline">Software Engineering Student | Python Focused</p>
+</section>
+
+<section id="projects" class="section projects-section" aria-labelledby="projects-heading">
+<div class="container">
+<h2 id="projects-heading" data-key="projects">Projects</h2>
+<div class="projects-grid">
+
+<a href="https://brecketline.me/read-around/" class="project-card" target="_blank" rel="noopener noreferrer">
+<h3 data-key="projectsTitle">Read Around</h3>
+<p data-key="projectsDesc">
+A simple tool that selects a random country in the world and then finds a book written by an author from that country. The goal is to learn about a place through its literature.
+</p>
+</a>
+
+<a href="synsys/" class="project-card"> 
+    <h3 data-key="synsysTitle">SYNSYS - Text Analyzer (API)</h3>
+    <p data-key="synsysDesc">
+        A Production-Ready full stack project built with Python Flask/spaCy (backend) and JavaScript (frontend). It identifies repeated words through lemmatization and suggests richer vocabulary.
+    </p>
+</a>
+
+<a href="schengin.html" class="project-card">
+<h3 data-key="schenginTitle">Scheng.in (Upcoming)</h3>
+<p data-key="schenginDesc">
+Exploring the Schengen Area? Keep your trip stress-free. Scheng.in is a website that tracks your days and intelligently recommends how to avoid overstaying your visa.
+</p>
+</a>
+</div>
+</div>
+</section>
+
+<section class="about section" id="about" aria-labelledby="about-heading">
+<div class="container">
+<h2 id="about-heading" data-key="aboutTitle">About</h2>
+<p data-key="aboutText">
+I'm a software engineering student with a background in customer service and tourism, where I learned to solve problems quickly, adapt to new environments, and work seamlessly with diverse teams. In 2023, I shifted my focus to technology, studying Python and building my foundation in JavaScript, HTML, and CSS. Today, I’m channeling those skills into software projects that emphasize simplicity, creativity, and reliable solutions.
+Fluent in four languages and with experience living and working across five countries, I bring a global perspective to my work and the ability to learn and adapt at speed. Whether as part of a trainee team or through collaboration, my goal is to create efficient solutions without sacrificing quality and to keep growing as a developer who delivers results you can trust.
+</p>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container footer-inner">
+<p>&copy; 2025 brecketline</p>
+<div class="socials">
+<a href="https://github.com/bredscc" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="icon github-icon" />
+</a>
+<a href="mailto:brecketline@gmail.com" aria-label="Email">
+<img src="https://img.icons8.com/ios-filled/50/ffffff/new-post.png" alt="Email" class="icon" />
+</a>
+</div>
+</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
